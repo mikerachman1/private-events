@@ -1,7 +1,25 @@
+<% if current_user == @event.creator %>
+  <%= link_to 'Edit', edit_event_path %>
+  <%= link_to 'Delete', delete_event_path %>
+<% elsif @event.attendees.include?(current_user) %>
+  <%= link_to 'Cancel RSVP', cancel_rsvp_event_path %>
+<% else %>
+  <%= link_to 'RSVP', rsvp_event_path %>
+<% end %>
+
 <h1>Event: <%= @event.title %></h1><br><br>
 
 <h3>Date: <%= @event.date %></h3><br>
 <h3>Location: <%= @event.location %></h3><br>
 <h3>Description:<%= @event.description %></h3><br><br>
 
-<h3>This event is hosted by: <%= @event.creator %></h3>
+<h3>This event is hosted by: <%= @event.creator %></h3><br><br>
+
+<h3>Attendees:</h3>
+<% if @event.attendees.empty? %>
+  <h5>This event has no attendees yet</h5>
+<% else %>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= attendee.name %></li>
+  <% end %>
+<% end %>
