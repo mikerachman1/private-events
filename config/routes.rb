@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "events#index"
 
-  resources :events, only: [:index, :new, :create, :show]
+  resources :events do 
+    member do
+      get 'rsvp'
+      get 'cancel_rsvp'
+    end
+  end
   resources :users, only: [:show]
+
+  get '/user/:id', to: 'users#profile', as: :user
 end
