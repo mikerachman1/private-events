@@ -1,3 +1,0 @@
-class RsvpsController < ApplicationController
-
-end
