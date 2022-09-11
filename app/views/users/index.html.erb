@@ -1,0 +1,9 @@
+<%= link_to 'All Events', root_path %>
+
+<h1>All Users:</h1>
+
+<div>
+  <% @users.each do |user| %>
+    <%= link_to user.name, user_path(user) %><br><br>
+  <% end %>
+</div>

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get 'cancel_rsvp'
     end
   end
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index]
 
   get '/user/:id', to: 'users#profile', as: :user
 end
