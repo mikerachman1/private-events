@@ -1,21 +1,24 @@
+<%= link_to 'All Users', index_user_path %>
+<%= link_to 'Create New Event', new_event_path %>
+
 <div>
-  <h3>Upcoming Events:</h3>
+  <h1>Upcoming Events:</h1>
   <% @events.future.each do |event| %>
-    <%= event.title %>
-    <%= event.date %>
-    <%= event.location %>
-    <%= event.description %>
-    <%= link_to 'Event page', event_path(event) %>
+    <h3><%= event.title %></h3>
+    <h3><%= event.date %></h3>
+    <h3><%= event.location %></h3>
+    <h3><%= event.description %></h3>
+    <h3><%= link_to 'Event page', event_path(event) %></h3><br><br>
   <% end %>
 </div>
 
 <div>
-  <h3>Past Events:</h3>
+  <h1>Past Events:</h1>
   <% @events.past.each do |event| %>
-    <%= event.title %>
-    <%= event.date %>
-    <%= event.location %>
-    <%= event.description %>
-    <%= link_to 'Event page', event_path(event) %>
+    <h3><%= event.title %></h3>
+    <h3><%= event.date %></h3>
+    <h3><%= event.location %></h3>
+    <h3><%= event.description %></h3>
+    <h3><%= link_to 'Event page', event_path(event) %></h3><br><br>
   <% end %>
 </div>
