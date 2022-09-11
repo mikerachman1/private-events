@@ -5,6 +5,8 @@ class Event < ApplicationRecord
 
   has_many :attendees, through: :rsvps
 
+  validates :title, :description, :location, :date, presence: true
+
   # def self.past
   #   self.where('date < ?', Date.today).order(:date)
   # end
@@ -15,5 +17,5 @@ class Event < ApplicationRecord
 
   scope :past, -> { where('date < ?', Date.today).order(:date) }
   scope :future, -> { where('date >= ?', Date.today).order(:date) }
-  
+
 end
