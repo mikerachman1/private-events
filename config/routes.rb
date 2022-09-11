@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :index]
 
-  get '/user/:id', to: 'users#profile', as: :user
+  # get '/user/:id', to: 'users#profile', as: :user
 end
