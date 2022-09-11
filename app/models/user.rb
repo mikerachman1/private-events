@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :rsvps, foreign_key: "attendee_id"
 
   has_many :attended_events, through: :rsvps
+
+  validates :name, presence: true, uniqueness: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
